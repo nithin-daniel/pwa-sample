@@ -11,7 +11,7 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open("my-cache").then(cache => {
+    caches.open(my-cache).then(cache => {
       cache.addAll(assets)
     })
   )
@@ -75,7 +75,7 @@ self.addEventListener("install", installEvent => {
 
 
 async function cacheThenNetwork(request) {
-  const cachedResponse = await caches.match(request);
+  const cachedResponse = await caches.match(my-cache);
   if (cachedResponse) {
     console.log("Found response in cache:", cachedResponse);
     return cachedResponse;
