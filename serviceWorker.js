@@ -11,7 +11,7 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open(staticDevCoffee).then(cache => {
+    caches.open(my-cache).then(cache => {
       cache.addAll(assets)
     })
   )
@@ -43,10 +43,31 @@ self.addEventListener("install", installEvent => {
 //   );
 // });
 
+// self.addEventListener("fetch", function(event) {
+//   event.respondWith(
+//     caches.match(event.request).then(function(response) {
+//       return response || fetch(event.request)
+//     })
+//   )
+// })
+
 self.addEventListener("fetch", function(event) {
   event.respondWith(
     caches.match(event.request).then(function(response) {
-      return response || fetch(event.request)
+      // If a cached response exists, return it
+      if (response) {
+        return response;
+      }
+
+      // Otherwise, fetch the resource from the network
+      return fetch(event.request).then(function(networkResponse) {
+        // Cache the fetched response for future use
+        caches.open("my-cache-name").then(function(cache) {
+          cache.put(event.request, networkResponse.clone());
+        });
+
+        return networkResponse;
+      });
     })
-  )
-})
+  );
+});
