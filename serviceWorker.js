@@ -96,7 +96,7 @@ self.addEventListener("install", function(event) {
   event.waitUntil(
     caches.open("sw-cache").then(function(cache) {
       console.log(cache);
-      return cache.addAll(assets)
+      return cache.addAll(assets);
     })
   )
 })
