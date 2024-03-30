@@ -11,7 +11,7 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open(my-cache).then(cache => {
+    caches.open("my-cache").then(cache => {
       cache.addAll(assets)
     })
   )
