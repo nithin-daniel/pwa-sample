@@ -1,4 +1,4 @@
-// // const staticDevCoffee = "dev-coffee-site-v1"
+const staticDevCoffee = "dev-coffee-site-v1"
 const assets = [
   "/",
   "/index.html",
@@ -11,95 +11,13 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open(my-cache).then(cache => {
+    caches.open(staticDevCoffee).then(cache => {
       cache.addAll(assets)
     })
   )
 })
 
-// // // self.addEventListener("fetch", fetchEvent => {
-// // //   fetchEvent.respondWith(
-// // //     caches.match(fetchEvent.request).then(res => {
-// // //       return res || fetch(fetchEvent.request)
-// // //     })
-// // //   )
-// // // })
 
-// // // self.addEventListener("fetch", fetchEvent => {
-// // //   fetchEvent.respondWith(
-// // //     caches.open('my-cache').then(cache => {
-// // //       return cache.match(fetchEvent.request).then(cachedResponse => {
-// // //         const fetchPromise = fetch(fetchEvent.request).then(networkResponse => {
-// // //           cache.put(fetchEvent.request, networkResponse.clone()); // Update the cache with the new response
-// // //           return networkResponse;
-// // //         }).catch(error => {
-// // //           // Handle fetch errors, e.g., offline fallback
-// // //           console.error('Fetch error:', error);
-// // //         });
-
-// // //         return cachedResponse || fetchPromise;
-// // //       });
-// // //     })
-// // //   );
-// // // });
-
-// // // self.addEventListener("fetch", function(event) {
-// // //   console.log(event.request.url);
-// // //   event.respondWith(
-// // //     caches.match(event.request).then(function(response) {
-// // //       return response || fetch(event.request)
-// // //     })
-// // //   )
-// // // })
-
-// // // self.addEventListener("fetch", function(event) {
-// // //   event.respondWith(
-// // //     caches.match(event.request).then(function(response) {
-// // //       // If a cached response exists, return it
-// // //       if (response) {
-// // //         return response;
-// // //       }
-
-// // //       // Otherwise, fetch the resource from the network
-// // //       return fetch(event.request).then(function(networkResponse) {
-// // //         // Cache the fetched response for future use
-// // //         caches.open("my-cache").then(function(cache) {
-// // //           cache.put(event.request, networkResponse.clone());
-// // //         });
-
-// // //         return networkResponse;
-// // //       });
-// // //     })
-// // //   );
-// // // });
-
-
-// // async function cacheThenNetwork(request) {
-// //   const cachedResponse = await caches.match(my-cache);
-// //   if (cachedResponse) {
-// //     console.log("Found response in cache:", cachedResponse);
-// //     return cachedResponse;
-// //   }
-// //   console.log("Falling back to network");
-// //   return fetch(request);
-// // }
-
-// // self.addEventListener("fetch", (event) => {
-// //   console.log(`Handling fetch event for ${event.request.url}`);
-// //   event.respondWith(cacheThenNetwork(event.request));
-// // });
-
-
-
-
-// self.addEventListener("install", function(event) {
-//   event.waitUntil(
-//     caches.open("sw-cache").then(function(cache) {
-//       console.log(cache);
-//       return cache.addAll(assets);
-//     })
-//   )
-// })
 
 self.addEventListener("fetch", (event)=> {
   event.respondWith(
@@ -111,41 +29,4 @@ self.addEventListener("fetch", (event)=> {
 
 
 
-
-// Async with MDN
-
-// const cacheName = "MyCache_1";
-// // const precachedResources = ["/", "/app.js", "/style.css"];
-
-// async function precache() {
-//   const cache = await caches.open(cacheName);
-//   return cache.addAll(assets);
-// }
-
-// self.addEventListener("install", (event) => {
-//   event.waitUntil(precache());
-// });
-
-// async function cacheFirst(request) {
-//   const cachedResponse = await caches.match(request);
-//   if (cachedResponse) {
-//     return cachedResponse;
-//   }
-//   try {
-//     const networkResponse = await fetch(request);
-//     if (networkResponse.ok) {
-//       const cache = await caches.open("MyCache_1");
-//       cache.put(request, networkResponse.clone());
-//     }
-//     return networkResponse;
-//   } catch (error) {
-//     return Response.error();
-//   }
-// }
-
-// self.addEventListener("fetch", (event) => {
-//   if (precachedResources.includes(url.pathname)) {
-//     event.respondWith(cacheFirst(event.request));
-//   }
-// });
 
