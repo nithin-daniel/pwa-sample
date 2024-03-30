@@ -25,20 +25,28 @@ self.addEventListener("install", installEvent => {
 //   )
 // })
 
-self.addEventListener("fetch", fetchEvent => {
-  fetchEvent.respondWith(
-    caches.open('my-cache').then(cache => {
-      return cache.match(fetchEvent.request).then(cachedResponse => {
-        const fetchPromise = fetch(fetchEvent.request).then(networkResponse => {
-          cache.put(fetchEvent.request, networkResponse.clone()); // Update the cache with the new response
-          return networkResponse;
-        }).catch(error => {
-          // Handle fetch errors, e.g., offline fallback
-          console.error('Fetch error:', error);
-        });
+// self.addEventListener("fetch", fetchEvent => {
+//   fetchEvent.respondWith(
+//     caches.open('my-cache').then(cache => {
+//       return cache.match(fetchEvent.request).then(cachedResponse => {
+//         const fetchPromise = fetch(fetchEvent.request).then(networkResponse => {
+//           cache.put(fetchEvent.request, networkResponse.clone()); // Update the cache with the new response
+//           return networkResponse;
+//         }).catch(error => {
+//           // Handle fetch errors, e.g., offline fallback
+//           console.error('Fetch error:', error);
+//         });
 
-        return cachedResponse || fetchPromise;
-      });
+//         return cachedResponse || fetchPromise;
+//       });
+//     })
+//   );
+// });
+
+self.addEventListener("fetch", function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request)
     })
-  );
-});
+  )
+})

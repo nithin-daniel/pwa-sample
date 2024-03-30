@@ -37,33 +37,42 @@ const showCoffees = () => {
 //   })
 // }
 
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function() {
-      navigator.serviceWorker
-        .register("/serviceWorker.js")
-        .then(registration => {
-          console.log("Service worker registered");
+
+
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+};
+
+
+
+
+// if ("serviceWorker" in navigator) {
+//     window.addEventListener("load", function() {
+//       navigator.serviceWorker
+//         .register("/serviceWorker.js")
+//         .then(registration => {
+//           console.log("Service worker registered");
   
-          // Check if there is an update available for the service worker
-          registration.addEventListener("updatefound", () => {
-            const newWorker = registration.installing;
-            newWorker.addEventListener("statechange", () => {
-              if (newWorker.state === "installed") {
-                if (navigator.serviceWorker.controller) {
-                  // A new version of the service worker is installed and activated
-                  console.log("New service worker installed and activated. Updating cache.");
+//           // Check if there is an update available for the service worker
+//           registration.addEventListener("updatefound", () => {
+//             const newWorker = registration.installing;
+//             newWorker.addEventListener("statechange", () => {
+//               if (newWorker.state === "installed") {
+//                 if (navigator.serviceWorker.controller) {
+//                   // A new version of the service worker is installed and activated
+//                   console.log("New service worker installed and activated. Updating cache.");
   
-                  // Perform cache update logic here
-                  newWorker.postMessage({ action: "skipWaiting" });
-                } else {
-                  // No service worker is controlling the page yet
-                  console.log("No service worker controlling the page.");
-                }
-              }
-            });
-          });
-        })
-        .catch(err => console.log("Service worker registration failed:", err));
-    });
-  }
+//                   // Perform cache update logic here
+//                   newWorker.postMessage({ action: "skipWaiting" });
+//                 } else {
+//                   // No service worker is controlling the page yet
+//                   console.log("No service worker controlling the page.");
+//                 }
+//               }
+//             });
+//           });
+//         })
+//         .catch(err => console.log("Service worker registration failed:", err));
+//     });
+//   }
   
