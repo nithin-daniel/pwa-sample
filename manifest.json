@@ -1,0 +1,43 @@
+{
+    "name": "Dev'Coffee",
+    "short_name": "DevCoffee",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#db4938",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1637&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "type": "image/png", "sizes": "72x72"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1561395663-385e657f72bc?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "type": "image/png", "sizes": "96x96"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1521677633993-721dd3f95c10?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "type": "image/png","sizes": "128x128"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1571867424485-ca624c51c157?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "type": "image/png", "sizes": "144x144"
+      },
+      {
+        "src": "https://plus.unsplash.com/premium_photo-1683141205809-e8007422591a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "type": "image/png", "sizes": "152x152"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1558909552-8fcf7c94b575?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "type": "image/png", "sizes": "192x192"
+      },
+      {
+        "src": "https://plus.unsplash.com/premium_photo-1661391536771-f18becd9f76e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dg",
+        "type": "image/png", "sizes": "384x384"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1517789807669-59c1043388b0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "type": "image/png", "sizes": "512x512"
+      }
+    ]
+  }
