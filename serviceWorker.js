@@ -51,23 +51,23 @@ self.addEventListener("install", installEvent => {
 //   )
 // })
 
-self.addEventListener("fetch", function(event) {
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      // If a cached response exists, return it
-      if (response) {
-        return response;
-      }
+// self.addEventListener("fetch", function(event) {
+//   event.respondWith(
+//     caches.match(event.request).then(function(response) {
+//       // If a cached response exists, return it
+//       if (response) {
+//         return response;
+//       }
 
-      // Otherwise, fetch the resource from the network
-      return fetch(event.request).then(function(networkResponse) {
-        // Cache the fetched response for future use
-        caches.open("my-cache").then(function(cache) {
-          cache.put(event.request, networkResponse.clone());
-        });
+//       // Otherwise, fetch the resource from the network
+//       return fetch(event.request).then(function(networkResponse) {
+//         // Cache the fetched response for future use
+//         caches.open("my-cache").then(function(cache) {
+//           cache.put(event.request, networkResponse.clone());
+//         });
 
-        return networkResponse;
-      });
-    })
-  );
-});
+//         return networkResponse;
+//       });
+//     })
+//   );
+// });
