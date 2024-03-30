@@ -62,7 +62,7 @@ self.addEventListener("fetch", function(event) {
       // Otherwise, fetch the resource from the network
       return fetch(event.request).then(function(networkResponse) {
         // Cache the fetched response for future use
-        caches.open("my-cache-name").then(function(cache) {
+        caches.open("my-cache").then(function(cache) {
           cache.put(event.request, networkResponse.clone());
         });
 
